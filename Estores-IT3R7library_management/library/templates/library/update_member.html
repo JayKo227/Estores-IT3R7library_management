@@ -1,0 +1,53 @@
+{% extends 'library/base.html' %}
+
+{% block title %}Update Member - Library Management{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Update Member</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="member_name">Member Name:</label>
+            <input type="text" id="member_name" name="member_name" value="{{ member.member_name }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" id="phone_number" name="phone_number" value="{{ member.phone_number }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male" {% if member.gender == 'Male' %}selected{% endif %}>Male</option>
+                <option value="Female" {% if member.gender == 'Female' %}selected{% endif %}>Female</option>
+                <option value="Other" {% if member.gender == 'Other' %}selected{% endif %}>Other</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="birth_year">Date of Birth:</label>
+            <input type="date" id="birth_year" name="birth_year" value="{{ member.birth_year|date:'Y-m-d' }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="book_id">Borrowed Book:</label>
+            <select id="book_id" name="book_id" required>
+                {% for book in books %}
+                <option value="{{ book.book_id }}" {% if book.book_id == member.book.book_id %}selected{% endif %}>
+                    {{ book.book_name }} (by {{ book.author.author_name }})
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="actions">
+            <button type="submit" class="btn">Update Member</button>
+            <a href="{% url 'member_list' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

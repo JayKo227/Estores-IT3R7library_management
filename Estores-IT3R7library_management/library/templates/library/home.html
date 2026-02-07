@@ -1,0 +1,18 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+<div class="card">
+    <h1>Library Management System</h1>
+    <p style="margin-bottom: 2rem;">
+        Welcome to the Library Management System. Manage your libraries, authors, books, and members.
+    </p>
+
+    <h2 style="font-size: 1.3rem; margin-bottom: 1rem;">Quick Actions</h2>
+    <div class="quick-actions">
+        <a href="{% url 'create_library' %}" class="btn">Create Library</a>
+        <a href="{% url 'create_author' %}" class="btn">Add Author</a>
+        <a href="{% url 'create_book' %}" class="btn">Add Book</a>
+        <a href="{% url 'create_member' %}" class="btn">Register Member</a>
+    </div>
+</div>
+{% endblock %}

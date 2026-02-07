@@ -1,0 +1,135 @@
+===============================================
+LIBRARY MANAGEMENT SYSTEM - SETUP INSTRUCTIONS
+===============================================
+
+📋 STEP-BY-STEP GUIDE TO RUN THE PROJECT:
+
+1️⃣  EXTRACT THE PROJECT
+   - Extract the project folder to your desired location
+   - Example: C:\Projects\library_management_complete
+
+2️⃣  OPEN TERMINAL/COMMAND PROMPT
+   Windows:
+   - Press Win + R, type "cmd", press Enter
+   - Navigate to project: cd C:\Projects\library_management_complete
+
+   Mac/Linux:
+   - Open Terminal
+   - Navigate to project: cd /path/to/library_management_complete
+
+3️⃣  CREATE VIRTUAL ENVIRONMENT (Recommended)
+   Windows:
+   python -m venv venv
+   venv\Scripts\activate
+
+   Mac/Linux:
+   python3 -m venv venv
+   source venv/bin/activate
+
+   You should see (venv) at the start of your command line
+
+4️⃣  INSTALL DJANGO
+   pip install django
+
+   OR use requirements.txt:
+   pip install -r requirements.txt
+
+5️⃣  RUN MIGRATIONS (Setup Database)
+   python manage.py migrate
+
+6️⃣  CREATE ADMIN USER (Optional but Recommended)
+   python manage.py createsuperuser
+
+   Enter:
+   - Username: admin (or your choice)
+   - Email: your@email.com (can skip)
+   - Password: (type password - won't show on screen)
+   - Password confirmation: (type again)
+
+7️⃣  START THE SERVER
+   python manage.py runserver
+
+8️⃣  OPEN YOUR BROWSER
+   Main App: http://127.0.0.1:8000/
+   Admin Panel: http://127.0.0.1:8000/admin/
+
+✅ THAT'S IT! YOUR PROJECT IS RUNNING!
+
+===============================================
+QUICK USAGE GUIDE:
+===============================================
+
+1. Create a Library first (Libraries → Create Library)
+2. Add Authors (Authors → Add Author)
+3. Add Books (Books → Add Book - select author & library)
+4. Register Members (Members → Register Member - select book)
+
+All entities support:
+✅ CREATE - Add new records
+✅ READ - View all records in tables
+✅ UPDATE - Edit existing records
+✅ DELETE - Remove records
+
+===============================================
+TROUBLESHOOTING:
+===============================================
+
+❌ "python is not recognized"
+   → Install Python from python.org
+
+❌ "No module named 'django'"
+   → Run: pip install django
+
+❌ "Port already in use"
+   → Run: python manage.py runserver 8001
+
+❌ "You have unapplied migrations"
+   → Run: python manage.py migrate
+
+❌ Can't access http://127.0.0.1:8000/
+   → Make sure server is running (you should see "Starting development server")
+   → Try http://localhost:8000/
+
+===============================================
+FOR GITHUB SUBMISSION:
+===============================================
+
+1. Initialize git:
+   git init
+
+2. Add files:
+   git add .
+
+3. Commit:
+   git commit -m "Library Management System - IT3R7"
+
+4. Create repo on GitHub.com
+
+5. Add remote:
+   git remote add origin YOUR_GITHUB_REPO_URL
+
+6. Push:
+   git branch -M main
+   git push -u origin main
+
+7. Fill the Google Form:
+   https://forms.gle/6jhjeGScExE3JRzv9
+
+===============================================
+ASSIGNMENT CHECKLIST:
+===============================================
+
+✅ Create operations implemented
+✅ Read operations implemented  
+✅ Delete operations implemented
+✅ Update operations implemented (BONUS)
+✅ Uses ERD from face-to-face session
+✅ DRF usage (Django Rest Framework principles)
+✅ Ready for GitHub submission
+
+===============================================
+Need Help?
+Contact: Mario Marlon D. Tumamak
+Course: IT3R7 Group 1
+Date: February 3, 2026
+===============================================

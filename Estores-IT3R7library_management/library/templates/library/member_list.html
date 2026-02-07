@@ -1,0 +1,46 @@
+{% extends 'library/base.html' %}
+
+{% block title %}Members - Library Management{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Members</h1>
+    <a href="{% url 'create_member' %}" class="btn">Register New Member</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Birth Year</th>
+                <th>Borrowed Book</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+            <tr>
+                <td>{{ member.member_id }}</td>
+                <td>{{ member.member_name }}</td>
+                <td>{{ member.phone_number }}</td>
+                <td>{{ member.gender }}</td>
+                <td>{{ member.birth_year }}</td>
+                <td>{{ member.book.book_name }}</td>
+                <td>
+                    <a href="{% url 'update_member' member.member_id %}" class="btn btn-secondary">Edit</a>
+                    <a href="{% url 'delete_member' member.member_id %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7" class="empty-state">
+                    No members found. Register your first member!
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

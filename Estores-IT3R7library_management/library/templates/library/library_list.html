@@ -1,0 +1,35 @@
+{% extends 'library/base.html' %}
+
+{% block title %}Libraries - Library Management{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Libraries</h1>
+    <a href="{% url 'create_library' %}" class="btn">Create New Library</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Library ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for library in libraries %}
+            <tr>
+                <td>{{ library.library_id }}</td>
+                <td>
+                    <a href="{% url 'delete_library' library.library_id %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2" class="empty-state">
+                    No libraries found. Create your first library!
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

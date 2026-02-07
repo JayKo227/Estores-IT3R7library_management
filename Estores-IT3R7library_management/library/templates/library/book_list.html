@@ -1,0 +1,44 @@
+{% extends 'library/base.html' %}
+
+{% block title %}Books - Library Management{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Books</h1>
+    <a href="{% url 'create_book' %}" class="btn">Add New Book</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Library</th>
+                <th>Published Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.book_id }}</td>
+                <td>{{ book.book_name }}</td>
+                <td>{{ book.author.author_name }}</td>
+                <td>Library {{ book.library.library_id }}</td>
+                <td>{{ book.date_published }}</td>
+                <td>
+                    <a href="{% url 'update_book' book.book_id %}" class="btn btn-secondary">Edit</a>
+                    <a href="{% url 'delete_book' book.book_id %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="empty-state">
+                    No books found. Add your first book!
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

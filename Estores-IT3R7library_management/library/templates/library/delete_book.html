@@ -1,0 +1,23 @@
+{% extends 'library/base.html' %}
+
+{% block title %}Delete Book - Library Management{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Delete Book</h1>
+
+    <div class="alert alert-warning">
+        <strong>Warning:</strong> Are you sure you want to delete the book: <strong>{{ book.book_name }}</strong>?
+        <br><br>
+        This action cannot be undone!
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="actions">
+            <button type="submit" class="btn btn-danger">Yes, Delete Book</button>
+            <a href="{% url 'book_list' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

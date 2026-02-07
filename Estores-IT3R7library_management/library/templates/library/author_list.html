@@ -1,0 +1,44 @@
+{% extends 'library/base.html' %}
+
+{% block title %}Authors - Library Management{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Authors</h1>
+    <a href="{% url 'create_author' %}" class="btn">Add New Author</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Birth Year</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for author in authors %}
+            <tr>
+                <td>{{ author.author_id }}</td>
+                <td>{{ author.author_name }}</td>
+                <td>{{ author.phone_number }}</td>
+                <td>{{ author.gender }}</td>
+                <td>{{ author.date_birth_year }}</td>
+                <td>
+                    <a href="{% url 'update_author' author.author_id %}" class="btn btn-secondary">Edit</a>
+                    <a href="{% url 'delete_author' author.author_id %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="empty-state">
+                    No authors found. Add your first author!
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

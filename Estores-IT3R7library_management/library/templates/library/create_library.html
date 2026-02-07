@@ -1,0 +1,20 @@
+{% extends 'library/base.html' %}
+
+{% block title %}Create Library - Library Management{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Create New Library</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <p style="color: #666; margin-bottom: 2rem;">Click the button below to create a new library. A unique ID will be automatically assigned.</p>
+        
+        <div class="actions">
+            <button type="submit" class="btn">Create Library</button>
+            <a href="{% url 'library_list' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
