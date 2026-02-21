@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import dj_database_url
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -78,6 +79,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'USER':'dbasedir_user'
+        'PASSWORD':'WwMXwI1lEhSamiIaM5m3jMJBDa8U9kgI'
+        'HOST':'dpg-d6cn1t94tr6s73c9sn9g-a.singapore-postgres.render.com'
+        'PORT':'5432'
+
     }
 }
 
